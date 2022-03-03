@@ -1,7 +1,7 @@
 [package]
-name = "zerok-macros"
+name = "espresso-macros"
 version = "0.1.0"
-authors = ["Translucence Research <engineering@translucence.net>"]
+authors = ["Espresso Systems <hello@espressosys.com>"]
 edition = "2018"
 
 [lib]
