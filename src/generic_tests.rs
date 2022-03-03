@@ -2,65 +2,17 @@ use proc_macro::TokenStream;
 use quote::{format_ident, quote};
 use syn::{parse2, parse_macro_input, Attribute, Item, ItemFn, ItemMod};
 
-/// Define a set of generic tests which can be instantiated with different type parameters.
-///
-/// When applied to a module, `generic_tests` will transform the contents of that module as follows.
-/// For each test function in the module (a test function is any function with an attribute ending
-/// in `test` or `bench`, e.g. `#[test]` or `#[async_std::test]`), the test-relevant attributes
-/// `#[test]`, `#[ignore]`, etc. will be removed. Otherwise, all items are left in the module
-/// unchanged.
-///
-/// A macro will be added to the module which can be used to instantiate the generic tests in the
-/// module. The name of the macro is `instantiate_` followed by the module name. Invoking the macro
-/// with a list of type parameters in any context where the generic tests module is in scope is
-/// equivalent to defining, for each test function in the module, a test function of the same name,
-/// with the test-relevant attributes of the original generic function, whose body simply invokes
-/// the generic function from the module with the given type parameters.
-///
-/// Note that, unlike normal test modules, all test functions must be public, since they will be
-/// invoked from wherever the instantiate macro is invoked, which will be outside the module where
-/// the tests are defined.
-///
-/// Also note that the instantiate macro is subject to the usual constraints on macro visibility. It
-/// can only be used in a context that is lexically after the module where it is defined. To use it
-/// from a module other than the one containing the generic tests module, all parent modules between
-/// the generic tests module and the common ancestor of the invoking module must be annotated with
-/// #[macro_use]. To use it from a different crate, `use my_crate::instantiate_macro` is required,
-/// where `my_crate` is the external name of the crate containing the generic tests module.
-///
-/// # Example
-/// ```
-/// use zerok_macros::generic_tests;
-///
-/// #[generic_tests]
-/// mod tests {
-///     #[test]
-///     pub fn a_test<T: std::fmt::Debug + Default + PartialEq>() {
-///         assert_eq!(T::default(), T::default());
-///     }
-/// }
-///
-/// #[cfg(test)]
-/// mod specific_tests {
-///     use super::tests;
-///     instantiate_tests!(u32);
-///     instantiate_tests!(Vec<u32>);
-/// }
-/// ```
-///
-/// # TODO
-/// A better way of declaring the instantiate macro would be to name it, simply, `instantiate`, and
-/// always reference it by qualified name, e.g. `tests::instantiate!(u32)`. This would eliminate the
-/// requirement of bringing both the tests module and the macro into scope separately before
-/// invoking the macro. I believe this is possible with the 2021 edition of Rust, but in the 2018
-/// edition macros don't behave like normal items of modules, and cannot be referenced by qualified
-/// path.
-///
 pub fn generic_tests(_args: TokenStream, input: TokenStream) -> TokenStream {
     let mut test_mod: ItemMod = parse_macro_input!(input);
     let name = &test_mod.ident;
 
     test_mod.content = test_mod.content.map(|(brace, items)| {
+        // TODO A better way of declaring the instantiate macro would be to name it, simply,
+        // `instantiate`, and always reference it by qualified name, e.g.
+        // `tests::instantiate!(u32)`. This would eliminate the requirement of bringing both the
+        // tests module and the macro into scope separately before invoking the macro. I believe
+        // this is possible with the 2021 edition of Rust, but in the 2018 edition macros don't
+        // behave like normal items of modules, and cannot be referenced by qualified path.
         let macro_name = format_ident!("instantiate_{}", name);
         let mut macro_body = proc_macro2::TokenStream::new();
 
