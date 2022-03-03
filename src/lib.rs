@@ -30,7 +30,7 @@ mod generic_tests;
 ///
 /// # Example
 /// ```
-/// use zerok_macros::generic_tests;
+/// use espresso_macros::generic_tests;
 ///
 /// #[generic_tests]
 /// mod tests {
@@ -81,7 +81,7 @@ mod ser_test;
 /// use ark_serialize::*;
 /// use rand_chacha::ChaChaRng;
 /// use serde::{Serialize, Deserialize};
-/// use zerok_macros::ser_test;
+/// use espresso_macros::ser_test;
 ///
 /// // Deriving serde and ark_serialize tests using a default instance.
 /// #[ser_test]
