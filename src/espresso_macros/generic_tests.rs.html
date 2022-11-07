@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `src/generic_tests.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>generic_tests.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" type="text/css" href="../../normalize.css"><link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../ayu.css" disabled><link rel="stylesheet" type="text/css" href="../../dark.css" disabled><link rel="stylesheet" type="text/css" href="../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../storage.js"></script><script defer src="../../source-script.js"></script><script defer src="../../source-files.js"></script><script defer src="../../main.js"></script><noscript><link rel="stylesheet" href="../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../../espresso_macros/index.html"><div class="logo-container"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></div></a><h2 class="location"></h2></nav><nav class="sidebar"><a class="sidebar-logo" href="../../espresso_macros/index.html"><div class="logo-container"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></div></a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../espresso_macros/index.html"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1"><a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../wheel.svg"></a></div></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">1</span>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `src/generic_tests.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>generic_tests.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" href="../../normalize.css"><link rel="stylesheet" href="../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" href="../../ayu.css" disabled><link rel="stylesheet" href="../../dark.css" disabled><link rel="stylesheet" href="../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../storage.js"></script><script defer src="../../source-script.js"></script><script defer src="../../source-files.js"></script><script defer src="../../main.js"></script><noscript><link rel="stylesheet" href="../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../../espresso_macros/index.html"><div class="logo-container"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></div></a><h2 class="location"></h2></nav><nav class="sidebar"><a class="sidebar-logo" href="../../espresso_macros/index.html"><div class="logo-container"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></div></a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../espresso_macros/index.html"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1"><a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../wheel.svg"></a></div></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">1</span>
 <span id="2">2</span>
 <span id="3">3</span>
 <span id="4">4</span>
@@ -102,109 +102,109 @@
 <span id="102">102</span>
 <span id="103">103</span>
 <span id="104">104</span>
-</pre><pre class="rust"><code><span class="comment">// Copyright (c) 2022 Espresso Systems (espressosys.com)</span>
-<span class="comment">// This file is part of the espresso-macros library.</span>
+</pre><pre class="rust"><code><span class="comment">// Copyright (c) 2022 Espresso Systems (espressosys.com)
+// This file is part of the espresso-macros library.
 
-<span class="comment">// This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.</span>
-<span class="comment">// This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.</span>
-<span class="comment">// You should have received a copy of the GNU General Public License along with this program. If not, see &lt;https://www.gnu.org/licenses/&gt;.</span>
+// This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+// This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+// You should have received a copy of the GNU General Public License along with this program. If not, see &lt;https://www.gnu.org/licenses/&gt;.
 
-<span class="kw">use</span> <span class="ident">proc_macro::TokenStream</span>;
-<span class="kw">use</span> <span class="ident">quote</span>::{<span class="ident">format_ident</span>, <span class="ident">quote</span>};
-<span class="kw">use</span> <span class="ident">syn</span>::{<span class="ident">parse2</span>, <span class="ident">parse_macro_input</span>, <span class="ident">Attribute</span>, <span class="ident">Item</span>, <span class="ident">ItemFn</span>, <span class="ident">ItemMod</span>};
+</span><span class="kw">use </span>proc_macro::TokenStream;
+<span class="kw">use </span>quote::{format_ident, quote};
+<span class="kw">use </span>syn::{parse2, parse_macro_input, Attribute, Item, ItemFn, ItemMod};
 
-<span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">generic_tests</span>(<span class="ident">_args</span>: <span class="ident">TokenStream</span>, <span class="ident">input</span>: <span class="ident">TokenStream</span>) -&gt; <span class="ident">TokenStream</span> {
-    <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">test_mod</span>: <span class="ident">ItemMod</span> <span class="op">=</span> <span class="macro">parse_macro_input!</span>(<span class="ident">input</span>);
-    <span class="kw">let</span> <span class="ident">name</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="ident">test_mod</span>.<span class="ident">ident</span>;
+<span class="kw">pub fn </span>generic_tests(_args: TokenStream, input: TokenStream) -&gt; TokenStream {
+    <span class="kw">let </span><span class="kw-2">mut </span>test_mod: ItemMod = <span class="macro">parse_macro_input!</span>(input);
+    <span class="kw">let </span>name = <span class="kw-2">&amp;</span>test_mod.ident;
 
-    <span class="ident">test_mod</span>.<span class="ident">content</span> <span class="op">=</span> <span class="ident">test_mod</span>.<span class="ident">content</span>.<span class="ident">map</span>(<span class="op">|</span>(<span class="ident">brace</span>, <span class="ident">items</span>)<span class="op">|</span> {
-        <span class="comment">// TODO A better way of declaring the instantiate macro would be to name it, simply,</span>
-        <span class="comment">// `instantiate`, and always reference it by qualified name, e.g.</span>
-        <span class="comment">// `tests::instantiate!(u32)`. This would eliminate the requirement of bringing both the</span>
-        <span class="comment">// tests module and the macro into scope separately before invoking the macro. I believe</span>
-        <span class="comment">// this is possible with the 2021 edition of Rust, but in the 2018 edition macros don&#39;t</span>
-        <span class="comment">// behave like normal items of modules, and cannot be referenced by qualified path.</span>
-        <span class="kw">let</span> <span class="ident">macro_name</span> <span class="op">=</span> <span class="macro">format_ident!</span>(<span class="string">&quot;instantiate_{}&quot;</span>, <span class="ident">name</span>);
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">macro_body</span> <span class="op">=</span> <span class="ident">proc_macro2::TokenStream::new</span>();
+    test_mod.content = test_mod.content.map(|(brace, items)| {
+        <span class="comment">// TODO A better way of declaring the instantiate macro would be to name it, simply,
+        // `instantiate`, and always reference it by qualified name, e.g.
+        // `tests::instantiate!(u32)`. This would eliminate the requirement of bringing both the
+        // tests module and the macro into scope separately before invoking the macro. I believe
+        // this is possible with the 2021 edition of Rust, but in the 2018 edition macros don&#39;t
+        // behave like normal items of modules, and cannot be referenced by qualified path.
+        </span><span class="kw">let </span>macro_name = <span class="macro">format_ident!</span>(<span class="string">&quot;instantiate_{}&quot;</span>, name);
+        <span class="kw">let </span><span class="kw-2">mut </span>macro_body = proc_macro2::TokenStream::new();
 
-        <span class="comment">// Transform each item in the module by removing test attributes. For each test function</span>
-        <span class="comment">// (function item which has at least one test attribute) append a monomorphized test</span>
-        <span class="comment">// function to `macro_body`.</span>
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">items</span> <span class="op">=</span> <span class="ident">items</span>
-            .<span class="ident">into_iter</span>()
-            .<span class="ident">map</span>(<span class="op">|</span><span class="ident">item</span><span class="op">|</span> {
-                <span class="kw">if</span> <span class="kw">let</span> <span class="ident">Item::Fn</span>(<span class="kw-2">mut</span> <span class="ident">f</span>) <span class="op">=</span> <span class="ident">item</span> {
-                    <span class="kw">let</span> <span class="ident">test_attrs</span> <span class="op">=</span> <span class="ident">take_test_attrs</span>(<span class="kw-2">&amp;mut</span> <span class="ident">f</span>);
-                    <span class="kw">if</span> <span class="op">!</span><span class="ident">test_attrs</span>.<span class="ident">is_empty</span>() {
-                        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">test_sig</span> <span class="op">=</span> <span class="ident">f</span>.<span class="ident">sig</span>.<span class="ident">clone</span>();
-                        <span class="comment">// The actual test function which gets defined by the macro must not have</span>
-                        <span class="comment">// any generics.</span>
-                        <span class="ident">test_sig</span>.<span class="ident">generics</span> <span class="op">=</span> <span class="ident">Default::default</span>();
-                        <span class="kw">let</span> <span class="ident">test_name</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="ident">test_sig</span>.<span class="ident">ident</span>;
-                        <span class="comment">// The macro will take `$t:ty` as a parameter, so we can use `$t` to invoke</span>
-                        <span class="comment">// the generic function with specific type parameters.</span>
-                        <span class="kw">let</span> <span class="ident">basic_call</span> <span class="op">=</span> <span class="macro">quote!</span>(#<span class="ident">name</span>::#<span class="ident">test_name</span>::<span class="op">&lt;</span>$(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">t</span>),<span class="kw-2">*</span><span class="op">&gt;</span>());
-                        <span class="comment">// Async test functions require an `await`.</span>
-                        <span class="kw">let</span> <span class="ident">call</span> <span class="op">=</span> <span class="kw">if</span> <span class="ident">test_sig</span>.<span class="ident">asyncness</span>.<span class="ident">is_some</span>() {
-                            <span class="macro">quote!</span>(#<span class="ident">basic_call</span>.<span class="kw">await</span>)
-                        } <span class="kw">else</span> {
-                            <span class="ident">basic_call</span>
+        <span class="comment">// Transform each item in the module by removing test attributes. For each test function
+        // (function item which has at least one test attribute) append a monomorphized test
+        // function to `macro_body`.
+        </span><span class="kw">let </span><span class="kw-2">mut </span>items = items
+            .into_iter()
+            .map(|item| {
+                <span class="kw">if let </span>Item::Fn(<span class="kw-2">mut </span>f) = item {
+                    <span class="kw">let </span>test_attrs = take_test_attrs(<span class="kw-2">&amp;mut </span>f);
+                    <span class="kw">if </span>!test_attrs.is_empty() {
+                        <span class="kw">let </span><span class="kw-2">mut </span>test_sig = f.sig.clone();
+                        <span class="comment">// The actual test function which gets defined by the macro must not have
+                        // any generics.
+                        </span>test_sig.generics = Default::default();
+                        <span class="kw">let </span>test_name = <span class="kw-2">&amp;</span>test_sig.ident;
+                        <span class="comment">// The macro will take `$t:ty` as a parameter, so we can use `$t` to invoke
+                        // the generic function with specific type parameters.
+                        </span><span class="kw">let </span>basic_call = <span class="macro">quote!</span>(#name::#test_name::&lt;$(<span class="macro-nonterminal">$t</span>),<span class="kw-2">*</span>&gt;());
+                        <span class="comment">// Async test functions require an `await`.
+                        </span><span class="kw">let </span>call = <span class="kw">if </span>test_sig.asyncness.is_some() {
+                            <span class="macro">quote!</span>(#basic_call.<span class="kw">await</span>)
+                        } <span class="kw">else </span>{
+                            basic_call
                         };
-                        <span class="ident">macro_body</span>.<span class="ident">extend</span>(<span class="macro">quote!</span> {
-                            #(#<span class="ident">test_attrs</span>)<span class="op">*</span>
-                            #<span class="ident">test_sig</span> {
-                                #<span class="ident">call</span>
+                        macro_body.extend(<span class="macro">quote! </span>{
+                            #(#test_attrs)*
+                            #test_sig {
+                                #call
                             }
                         });
                     }
-                    <span class="ident">Item::Fn</span>(<span class="ident">f</span>)
-                } <span class="kw">else</span> {
-                    <span class="ident">item</span>
+                    Item::Fn(f)
+                } <span class="kw">else </span>{
+                    item
                 }
             })
-            .<span class="ident">collect</span>::<span class="op">&lt;</span><span class="ident">Vec</span><span class="op">&lt;</span><span class="kw">_</span><span class="op">&gt;</span><span class="op">&gt;</span>();
+            .collect::&lt;Vec&lt;<span class="kw">_</span>&gt;&gt;();
 
-        <span class="ident">items</span>.<span class="ident">push</span>(
-            <span class="ident">parse2</span>(<span class="macro">quote!</span> {
-                <span class="attribute">#[<span class="ident">macro_export</span>]</span>
-                <span class="macro">macro_rules!</span> #<span class="ident">macro_name</span> {
-                    ($(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">t</span>:<span class="ident">ty</span>),<span class="kw-2">*</span>) =&gt; {
-                        #<span class="ident">macro_body</span>
+        items.push(
+            parse2(<span class="macro">quote! </span>{
+                <span class="attribute">#[macro_export]
+                </span><span class="macro">macro_rules! </span>#macro_name {
+                    ($(<span class="macro-nonterminal">$t</span>:ty),<span class="kw-2">*</span>) =&gt; {
+                        #macro_body
                     };
                 }
             })
-            .<span class="ident">unwrap</span>(),
+            .unwrap(),
         );
 
-        (<span class="ident">brace</span>, <span class="ident">items</span>)
+        (brace, items)
     });
 
-    <span class="kw">let</span> <span class="ident">output</span> <span class="op">=</span> <span class="macro">quote!</span> {
-        <span class="attribute">#[<span class="ident">macro_use</span>]</span>
-        #<span class="ident">test_mod</span>
+    <span class="kw">let </span>output = <span class="macro">quote! </span>{
+        <span class="attribute">#[macro_use]
+        </span>#test_mod
     };
-    <span class="ident">output</span>.<span class="ident">into</span>()
+    output.into()
 }
 
-<span class="kw">fn</span> <span class="ident">take_test_attrs</span>(<span class="ident">f</span>: <span class="kw-2">&amp;mut</span> <span class="ident">ItemFn</span>) -&gt; <span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">Attribute</span><span class="op">&gt;</span> {
-    <span class="kw">let</span> (<span class="ident">test_attrs</span>, <span class="ident">other_attrs</span>) <span class="op">=</span> <span class="ident">std::mem::take</span>(<span class="kw-2">&amp;mut</span> <span class="ident">f</span>.<span class="ident">attrs</span>)
-        .<span class="ident">into_iter</span>()
-        .<span class="ident">partition</span>(<span class="ident">is_test_attr</span>);
-    <span class="ident">f</span>.<span class="ident">attrs</span> <span class="op">=</span> <span class="ident">other_attrs</span>;
-    <span class="ident">test_attrs</span>
+<span class="kw">fn </span>take_test_attrs(f: <span class="kw-2">&amp;mut </span>ItemFn) -&gt; Vec&lt;Attribute&gt; {
+    <span class="kw">let </span>(test_attrs, other_attrs) = std::mem::take(<span class="kw-2">&amp;mut </span>f.attrs)
+        .into_iter()
+        .partition(is_test_attr);
+    f.attrs = other_attrs;
+    test_attrs
 }
 
-<span class="kw">fn</span> <span class="ident">is_test_attr</span>(<span class="ident">attr</span>: <span class="kw-2">&amp;</span><span class="ident">Attribute</span>) -&gt; <span class="ident">bool</span> {
+<span class="kw">fn </span>is_test_attr(attr: <span class="kw-2">&amp;</span>Attribute) -&gt; bool {
     <span class="macro">matches!</span>(
-        <span class="ident">attr</span>.<span class="ident">path</span>
-            .<span class="ident">segments</span>
-            .<span class="ident">last</span>()
-            .<span class="ident">unwrap</span>()
-            .<span class="ident">ident</span>
-            .<span class="ident">to_string</span>()
-            .<span class="ident">as_str</span>(),
-        <span class="string">&quot;test&quot;</span> <span class="op">|</span> <span class="string">&quot;ignore&quot;</span> <span class="op">|</span> <span class="string">&quot;bench&quot;</span> <span class="op">|</span> <span class="string">&quot;should_panic&quot;</span>
-    )
+        attr.path
+            .segments
+            .last()
+            .unwrap()
+            .ident
+            .to_string()
+            .as_str(),
+        <span class="string">&quot;test&quot; </span>| <span class="string">&quot;ignore&quot; </span>| <span class="string">&quot;bench&quot; </span>| <span class="string">&quot;should_panic&quot;
+    </span>)
 }
 </code></pre></div>
-</section></div></main><div id="rustdoc-vars" data-root-path="../../" data-current-crate="espresso_macros" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.64.0 (a55dd71d5 2022-09-19)" ></div></body></html>
+</section></div></main><div id="rustdoc-vars" data-root-path="../../" data-current-crate="espresso_macros" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.65.0 (897e37553 2022-11-02)" ></div></body></html>

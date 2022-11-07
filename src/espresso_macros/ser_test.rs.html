@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `src/ser_test.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>ser_test.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" type="text/css" href="../../normalize.css"><link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../ayu.css" disabled><link rel="stylesheet" type="text/css" href="../../dark.css" disabled><link rel="stylesheet" type="text/css" href="../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../storage.js"></script><script defer src="../../source-script.js"></script><script defer src="../../source-files.js"></script><script defer src="../../main.js"></script><noscript><link rel="stylesheet" href="../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../../espresso_macros/index.html"><div class="logo-container"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></div></a><h2 class="location"></h2></nav><nav class="sidebar"><a class="sidebar-logo" href="../../espresso_macros/index.html"><div class="logo-container"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></div></a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../espresso_macros/index.html"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1"><a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../wheel.svg"></a></div></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">1</span>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `src/ser_test.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>ser_test.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" href="../../normalize.css"><link rel="stylesheet" href="../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" href="../../ayu.css" disabled><link rel="stylesheet" href="../../dark.css" disabled><link rel="stylesheet" href="../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../storage.js"></script><script defer src="../../source-script.js"></script><script defer src="../../source-files.js"></script><script defer src="../../main.js"></script><noscript><link rel="stylesheet" href="../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../../espresso_macros/index.html"><div class="logo-container"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></div></a><h2 class="location"></h2></nav><nav class="sidebar"><a class="sidebar-logo" href="../../espresso_macros/index.html"><div class="logo-container"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></div></a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../espresso_macros/index.html"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1"><a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../wheel.svg"></a></div></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">1</span>
 <span id="2">2</span>
 <span id="3">3</span>
 <span id="4">4</span>
@@ -206,213 +206,213 @@
 <span id="206">206</span>
 <span id="207">207</span>
 <span id="208">208</span>
-</pre><pre class="rust"><code><span class="comment">// Copyright (c) 2022 Espresso Systems (espressosys.com)</span>
-<span class="comment">// This file is part of the espresso-macros library.</span>
+</pre><pre class="rust"><code><span class="comment">// Copyright (c) 2022 Espresso Systems (espressosys.com)
+// This file is part of the espresso-macros library.
 
-<span class="comment">// This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.</span>
-<span class="comment">// This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.</span>
-<span class="comment">// You should have received a copy of the GNU General Public License along with this program. If not, see &lt;https://www.gnu.org/licenses/&gt;.</span>
+// This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+// This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+// You should have received a copy of the GNU General Public License along with this program. If not, see &lt;https://www.gnu.org/licenses/&gt;.
 
-<span class="kw">use</span> <span class="ident">proc_macro::TokenStream</span>;
-<span class="kw">use</span> <span class="ident">proc_macro2::Span</span>;
-<span class="kw">use</span> <span class="ident">quote</span>::{<span class="ident">quote</span>, <span class="ident">ToTokens</span>};
-<span class="kw">use</span> <span class="ident">syn</span>::{<span class="ident">parse_macro_input</span>, <span class="ident">AttributeArgs</span>, <span class="ident">Ident</span>, <span class="ident">Item</span>, <span class="ident">Lit</span>, <span class="ident">Meta</span>, <span class="ident">MetaList</span>, <span class="ident">NestedMeta</span>, <span class="ident">Type</span>};
+</span><span class="kw">use </span>proc_macro::TokenStream;
+<span class="kw">use </span>proc_macro2::Span;
+<span class="kw">use </span>quote::{quote, ToTokens};
+<span class="kw">use </span>syn::{parse_macro_input, AttributeArgs, Ident, Item, Lit, Meta, MetaList, NestedMeta, Type};
 
-<span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">ser_test</span>(<span class="ident">args</span>: <span class="ident">TokenStream</span>, <span class="ident">input</span>: <span class="ident">TokenStream</span>) -&gt; <span class="ident">TokenStream</span> {
-    <span class="kw">let</span> <span class="ident">args</span> <span class="op">=</span> <span class="macro">parse_macro_input!</span>(<span class="ident">args</span> <span class="kw">as</span> <span class="ident">AttributeArgs</span>);
-    <span class="kw">let</span> <span class="ident">input</span> <span class="op">=</span> <span class="macro">parse_macro_input!</span>(<span class="ident">input</span> <span class="kw">as</span> <span class="ident">Item</span>);
-    <span class="kw">let</span> <span class="ident">name</span> <span class="op">=</span> <span class="kw">match</span> <span class="kw-2">&amp;</span><span class="ident">input</span> {
-        <span class="ident">Item::Struct</span>(<span class="ident">item</span>) =&gt; <span class="kw-2">&amp;</span><span class="ident">item</span>.<span class="ident">ident</span>,
-        <span class="ident">Item::Enum</span>(<span class="ident">item</span>) =&gt; <span class="kw-2">&amp;</span><span class="ident">item</span>.<span class="ident">ident</span>,
-        <span class="kw">_</span> =&gt; <span class="macro">panic!</span>(<span class="string">&quot;expected struct or enum&quot;</span>),
+<span class="kw">pub fn </span>ser_test(args: TokenStream, input: TokenStream) -&gt; TokenStream {
+    <span class="kw">let </span>args = <span class="macro">parse_macro_input!</span>(args <span class="kw">as </span>AttributeArgs);
+    <span class="kw">let </span>input = <span class="macro">parse_macro_input!</span>(input <span class="kw">as </span>Item);
+    <span class="kw">let </span>name = <span class="kw">match </span><span class="kw-2">&amp;</span>input {
+        Item::Struct(item) =&gt; <span class="kw-2">&amp;</span>item.ident,
+        Item::Enum(item) =&gt; <span class="kw-2">&amp;</span>item.ident,
+        <span class="kw">_ </span>=&gt; <span class="macro">panic!</span>(<span class="string">&quot;expected struct or enum&quot;</span>),
     };
 
-    <span class="comment">// Parse arguments.</span>
-    <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">constr</span> <span class="op">=</span> <span class="ident">Constr::Default</span>;
-    <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">test_ark</span> <span class="op">=</span> <span class="bool-val">true</span>;
-    <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">test_serde</span> <span class="op">=</span> <span class="bool-val">true</span>;
-    <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">types</span> <span class="op">=</span> <span class="ident">Vec::new</span>();
-    <span class="kw">for</span> <span class="ident">arg</span> <span class="kw">in</span> <span class="ident">args</span> {
-        <span class="kw">match</span> <span class="ident">arg</span> {
-            <span class="comment">// Path arguments (as in #[ser_test(arg)])</span>
-            <span class="ident">NestedMeta::Meta</span>(<span class="ident">Meta::Path</span>(<span class="ident">path</span>)) =&gt; <span class="kw">match</span> <span class="ident">path</span>.<span class="ident">get_ident</span>() {
-                <span class="prelude-val">Some</span>(<span class="ident">id</span>) <span class="kw">if</span> <span class="kw-2">*</span><span class="ident">id</span> <span class="op">==</span> <span class="string">&quot;random&quot;</span> =&gt; {
-                    <span class="ident">constr</span> <span class="op">=</span> <span class="ident">Constr::Random</span>(<span class="ident">id</span>.<span class="ident">clone</span>());
+    <span class="comment">// Parse arguments.
+    </span><span class="kw">let </span><span class="kw-2">mut </span>constr = Constr::Default;
+    <span class="kw">let </span><span class="kw-2">mut </span>test_ark = <span class="bool-val">true</span>;
+    <span class="kw">let </span><span class="kw-2">mut </span>test_serde = <span class="bool-val">true</span>;
+    <span class="kw">let </span><span class="kw-2">mut </span>types = Vec::new();
+    <span class="kw">for </span>arg <span class="kw">in </span>args {
+        <span class="kw">match </span>arg {
+            <span class="comment">// Path arguments (as in #[ser_test(arg)])
+            </span>NestedMeta::Meta(Meta::Path(path)) =&gt; <span class="kw">match </span>path.get_ident() {
+                <span class="prelude-val">Some</span>(id) <span class="kw">if </span><span class="kw-2">*</span>id == <span class="string">&quot;random&quot; </span>=&gt; {
+                    constr = Constr::Random(id.clone());
                 }
 
-                <span class="prelude-val">Some</span>(<span class="ident">id</span>) <span class="kw">if</span> <span class="kw-2">*</span><span class="ident">id</span> <span class="op">==</span> <span class="string">&quot;arbitrary&quot;</span> =&gt; {
-                    <span class="ident">constr</span> <span class="op">=</span> <span class="ident">Constr::Arbitrary</span>;
+                <span class="prelude-val">Some</span>(id) <span class="kw">if </span><span class="kw-2">*</span>id == <span class="string">&quot;arbitrary&quot; </span>=&gt; {
+                    constr = Constr::Arbitrary;
                 }
 
-                <span class="kw">_</span> =&gt; <span class="macro">panic!</span>(<span class="string">&quot;invalid argument {:?}&quot;</span>, <span class="ident">path</span>),
+                <span class="kw">_ </span>=&gt; <span class="macro">panic!</span>(<span class="string">&quot;invalid argument {:?}&quot;</span>, path),
             },
 
-            <span class="comment">// List arguments (as in #[ser_test(arg(val))])</span>
-            <span class="ident">NestedMeta::Meta</span>(<span class="ident">Meta::List</span>(<span class="ident">MetaList</span> { <span class="ident">path</span>, <span class="ident">nested</span>, .. })) =&gt; <span class="kw">match</span> <span class="ident">path</span>.<span class="ident">get_ident</span>() {
-                <span class="prelude-val">Some</span>(<span class="ident">id</span>) <span class="kw">if</span> <span class="kw-2">*</span><span class="ident">id</span> <span class="op">==</span> <span class="string">&quot;random&quot;</span> =&gt; {
-                    <span class="kw">if</span> <span class="ident">nested</span>.<span class="ident">len</span>() <span class="op">!</span><span class="op">=</span> <span class="number">1</span> {
+            <span class="comment">// List arguments (as in #[ser_test(arg(val))])
+            </span>NestedMeta::Meta(Meta::List(MetaList { path, nested, .. })) =&gt; <span class="kw">match </span>path.get_ident() {
+                <span class="prelude-val">Some</span>(id) <span class="kw">if </span><span class="kw-2">*</span>id == <span class="string">&quot;random&quot; </span>=&gt; {
+                    <span class="kw">if </span>nested.len() != <span class="number">1 </span>{
                         <span class="macro">panic!</span>(<span class="string">&quot;random attribute takes 1 argument&quot;</span>);
                     }
-                    <span class="kw">match</span> <span class="kw-2">&amp;</span><span class="ident">nested</span>[<span class="number">0</span>] {
-                        <span class="ident">NestedMeta::Meta</span>(<span class="ident">Meta::Path</span>(<span class="ident">p</span>)) =&gt; <span class="kw">match</span> <span class="ident">p</span>.<span class="ident">get_ident</span>() {
-                            <span class="prelude-val">Some</span>(<span class="ident">id</span>) =&gt; {
-                                <span class="ident">constr</span> <span class="op">=</span> <span class="ident">Constr::Random</span>(<span class="ident">id</span>.<span class="ident">clone</span>());
+                    <span class="kw">match </span><span class="kw-2">&amp;</span>nested[<span class="number">0</span>] {
+                        NestedMeta::Meta(Meta::Path(p)) =&gt; <span class="kw">match </span>p.get_ident() {
+                            <span class="prelude-val">Some</span>(id) =&gt; {
+                                constr = Constr::Random(id.clone());
                             }
-                            <span class="prelude-val">None</span> =&gt; <span class="macro">panic!</span>(<span class="string">&quot;random argument must be an identifier&quot;</span>),
+                            <span class="prelude-val">None </span>=&gt; <span class="macro">panic!</span>(<span class="string">&quot;random argument must be an identifier&quot;</span>),
                         },
-                        <span class="kw">_</span> =&gt; <span class="macro">panic!</span>(<span class="string">&quot;random argument must be an identifier&quot;</span>),
+                        <span class="kw">_ </span>=&gt; <span class="macro">panic!</span>(<span class="string">&quot;random argument must be an identifier&quot;</span>),
                     }
                 }
 
-                <span class="prelude-val">Some</span>(<span class="ident">id</span>) <span class="kw">if</span> <span class="kw-2">*</span><span class="ident">id</span> <span class="op">==</span> <span class="string">&quot;constr&quot;</span> =&gt; {
-                    <span class="kw">if</span> <span class="ident">nested</span>.<span class="ident">len</span>() <span class="op">!</span><span class="op">=</span> <span class="number">1</span> {
+                <span class="prelude-val">Some</span>(id) <span class="kw">if </span><span class="kw-2">*</span>id == <span class="string">&quot;constr&quot; </span>=&gt; {
+                    <span class="kw">if </span>nested.len() != <span class="number">1 </span>{
                         <span class="macro">panic!</span>(<span class="string">&quot;constr attribute takes 1 argument&quot;</span>);
                     }
-                    <span class="kw">match</span> <span class="kw-2">&amp;</span><span class="ident">nested</span>[<span class="number">0</span>] {
-                        <span class="ident">NestedMeta::Meta</span>(<span class="ident">Meta::Path</span>(<span class="ident">p</span>)) =&gt; <span class="kw">match</span> <span class="ident">p</span>.<span class="ident">get_ident</span>() {
-                            <span class="prelude-val">Some</span>(<span class="ident">id</span>) =&gt; {
-                                <span class="ident">constr</span> <span class="op">=</span> <span class="ident">Constr::Method</span>(<span class="ident">id</span>.<span class="ident">clone</span>());
+                    <span class="kw">match </span><span class="kw-2">&amp;</span>nested[<span class="number">0</span>] {
+                        NestedMeta::Meta(Meta::Path(p)) =&gt; <span class="kw">match </span>p.get_ident() {
+                            <span class="prelude-val">Some</span>(id) =&gt; {
+                                constr = Constr::Method(id.clone());
                             }
-                            <span class="prelude-val">None</span> =&gt; <span class="macro">panic!</span>(<span class="string">&quot;constr argument must be an identifier&quot;</span>),
+                            <span class="prelude-val">None </span>=&gt; <span class="macro">panic!</span>(<span class="string">&quot;constr argument must be an identifier&quot;</span>),
                         },
-                        <span class="kw">_</span> =&gt; <span class="macro">panic!</span>(<span class="string">&quot;constr argument must be an identifier&quot;</span>),
+                        <span class="kw">_ </span>=&gt; <span class="macro">panic!</span>(<span class="string">&quot;constr argument must be an identifier&quot;</span>),
                     }
                 }
 
-                <span class="prelude-val">Some</span>(<span class="ident">id</span>) <span class="kw">if</span> <span class="kw-2">*</span><span class="ident">id</span> <span class="op">==</span> <span class="string">&quot;ark&quot;</span> =&gt; {
-                    <span class="kw">if</span> <span class="ident">nested</span>.<span class="ident">len</span>() <span class="op">!</span><span class="op">=</span> <span class="number">1</span> {
+                <span class="prelude-val">Some</span>(id) <span class="kw">if </span><span class="kw-2">*</span>id == <span class="string">&quot;ark&quot; </span>=&gt; {
+                    <span class="kw">if </span>nested.len() != <span class="number">1 </span>{
                         <span class="macro">panic!</span>(<span class="string">&quot;ark attribute takes 1 argument&quot;</span>);
                     }
-                    <span class="kw">match</span> <span class="kw-2">&amp;</span><span class="ident">nested</span>[<span class="number">0</span>] {
-                        <span class="ident">NestedMeta::Lit</span>(<span class="ident">Lit::Bool</span>(<span class="ident">b</span>)) =&gt; {
-                            <span class="ident">test_ark</span> <span class="op">=</span> <span class="ident">b</span>.<span class="ident">value</span>;
+                    <span class="kw">match </span><span class="kw-2">&amp;</span>nested[<span class="number">0</span>] {
+                        NestedMeta::Lit(Lit::Bool(b)) =&gt; {
+                            test_ark = b.value;
                         }
-                        <span class="kw">_</span> =&gt; <span class="macro">panic!</span>(<span class="string">&quot;ark argument must be a boolean&quot;</span>),
+                        <span class="kw">_ </span>=&gt; <span class="macro">panic!</span>(<span class="string">&quot;ark argument must be a boolean&quot;</span>),
                     }
                 }
 
-                <span class="prelude-val">Some</span>(<span class="ident">id</span>) <span class="kw">if</span> <span class="kw-2">*</span><span class="ident">id</span> <span class="op">==</span> <span class="string">&quot;serde&quot;</span> =&gt; {
-                    <span class="kw">if</span> <span class="ident">nested</span>.<span class="ident">len</span>() <span class="op">!</span><span class="op">=</span> <span class="number">1</span> {
+                <span class="prelude-val">Some</span>(id) <span class="kw">if </span><span class="kw-2">*</span>id == <span class="string">&quot;serde&quot; </span>=&gt; {
+                    <span class="kw">if </span>nested.len() != <span class="number">1 </span>{
                         <span class="macro">panic!</span>(<span class="string">&quot;serde attribute takes 1 argument&quot;</span>);
                     }
-                    <span class="kw">match</span> <span class="kw-2">&amp;</span><span class="ident">nested</span>[<span class="number">0</span>] {
-                        <span class="ident">NestedMeta::Lit</span>(<span class="ident">Lit::Bool</span>(<span class="ident">b</span>)) =&gt; {
-                            <span class="ident">test_serde</span> <span class="op">=</span> <span class="ident">b</span>.<span class="ident">value</span>;
+                    <span class="kw">match </span><span class="kw-2">&amp;</span>nested[<span class="number">0</span>] {
+                        NestedMeta::Lit(Lit::Bool(b)) =&gt; {
+                            test_serde = b.value;
                         }
-                        <span class="kw">_</span> =&gt; <span class="macro">panic!</span>(<span class="string">&quot;serde argument must be a boolean&quot;</span>),
+                        <span class="kw">_ </span>=&gt; <span class="macro">panic!</span>(<span class="string">&quot;serde argument must be a boolean&quot;</span>),
                     }
                 }
 
-                <span class="prelude-val">Some</span>(<span class="ident">id</span>) <span class="kw">if</span> <span class="kw-2">*</span><span class="ident">id</span> <span class="op">==</span> <span class="string">&quot;types&quot;</span> =&gt; {
-                    <span class="kw">let</span> <span class="ident">params</span> <span class="op">=</span> <span class="ident">nested</span>.<span class="ident">iter</span>().<span class="ident">map</span>(<span class="ident">parse_type</span>).<span class="ident">collect</span>::<span class="op">&lt;</span><span class="ident">Vec</span><span class="op">&lt;</span><span class="kw">_</span><span class="op">&gt;</span><span class="op">&gt;</span>();
-                    <span class="ident">types</span>.<span class="ident">push</span>(<span class="macro">quote!</span>(<span class="op">&lt;</span>#<span class="ident">name</span><span class="op">&lt;</span>#(#<span class="ident">params</span>),<span class="kw-2">*</span><span class="op">&gt;</span><span class="op">&gt;</span>));
+                <span class="prelude-val">Some</span>(id) <span class="kw">if </span><span class="kw-2">*</span>id == <span class="string">&quot;types&quot; </span>=&gt; {
+                    <span class="kw">let </span>params = nested.iter().map(parse_type).collect::&lt;Vec&lt;<span class="kw">_</span>&gt;&gt;();
+                    types.push(<span class="macro">quote!</span>(&lt;#name&lt;#(#params),<span class="kw-2">*</span>&gt;&gt;));
                 }
 
-                <span class="kw">_</span> =&gt; <span class="macro">panic!</span>(<span class="string">&quot;invalid attribute {:?}&quot;</span>, <span class="ident">path</span>),
+                <span class="kw">_ </span>=&gt; <span class="macro">panic!</span>(<span class="string">&quot;invalid attribute {:?}&quot;</span>, path),
             },
 
-            <span class="kw">_</span> =&gt; <span class="macro">panic!</span>(<span class="string">&quot;invalid argument {:?}&quot;</span>, <span class="ident">arg</span>),
+            <span class="kw">_ </span>=&gt; <span class="macro">panic!</span>(<span class="string">&quot;invalid argument {:?}&quot;</span>, arg),
         }
     }
 
-    <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">output</span> <span class="op">=</span> <span class="macro">quote!</span> {
-        #<span class="ident">input</span>
+    <span class="kw">let </span><span class="kw-2">mut </span>output = <span class="macro">quote! </span>{
+        #input
     };
 
-    <span class="kw">if</span> <span class="ident">types</span>.<span class="ident">is_empty</span>() {
-        <span class="comment">// If no explicit type parameters were given for us to test with, assume the type under test</span>
-        <span class="comment">// takes no type parameters.</span>
-        <span class="ident">types</span>.<span class="ident">push</span>(<span class="macro">quote!</span>(<span class="op">&lt;</span>#<span class="ident">name</span><span class="op">&gt;</span>));
+    <span class="kw">if </span>types.is_empty() {
+        <span class="comment">// If no explicit type parameters were given for us to test with, assume the type under test
+        // takes no type parameters.
+        </span>types.push(<span class="macro">quote!</span>(&lt;#name&gt;));
     }
 
-    <span class="kw">for</span> (<span class="ident">i</span>, <span class="ident">ty</span>) <span class="kw">in</span> <span class="ident">types</span>.<span class="ident">into_iter</span>().<span class="ident">enumerate</span>() {
-        <span class="kw">let</span> <span class="ident">constr</span> <span class="op">=</span> <span class="kw">match</span> <span class="kw-2">&amp;</span><span class="ident">constr</span> {
-            <span class="ident">Constr::Default</span> =&gt; <span class="macro">quote!</span> { #<span class="ident">ty::default</span>() },
-            <span class="ident">Constr::Arbitrary</span> =&gt; <span class="macro">quote!</span> {
+    <span class="kw">for </span>(i, ty) <span class="kw">in </span>types.into_iter().enumerate() {
+        <span class="kw">let </span>constr = <span class="kw">match </span><span class="kw-2">&amp;</span>constr {
+            Constr::Default =&gt; <span class="macro">quote! </span>{ #ty::default() },
+            Constr::Arbitrary =&gt; <span class="macro">quote! </span>{
                 {
-                    <span class="kw">use</span> <span class="ident">arbitrary::Unstructured</span>;
-                    <span class="kw">use</span> <span class="ident">rand_chacha</span>::{<span class="ident">rand_core</span>::{<span class="ident">RngCore</span>, <span class="ident">SeedableRng</span>}, <span class="ident">ChaChaRng</span>};
-                    <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">rng</span> <span class="op">=</span> <span class="ident">ChaChaRng::from_seed</span>([<span class="number">42u8</span>; <span class="number">32</span>]);
-                    <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">data</span> <span class="op">=</span> <span class="macro">vec!</span>[<span class="number">0u8</span>; <span class="number">2048</span>];
-                    <span class="ident">rng</span>.<span class="ident">fill_bytes</span>(<span class="kw-2">&amp;mut</span> <span class="ident">data</span>);
-                    <span class="ident">Unstructured::new</span>(<span class="kw-2">&amp;</span><span class="ident">data</span>).<span class="ident">arbitrary</span>::#<span class="ident">ty</span>().<span class="ident">unwrap</span>()
+                    <span class="kw">use </span>arbitrary::Unstructured;
+                    <span class="kw">use </span>rand_chacha::{rand_core::{RngCore, SeedableRng}, ChaChaRng};
+                    <span class="kw">let </span><span class="kw-2">mut </span>rng = ChaChaRng::from_seed([<span class="number">42u8</span>; <span class="number">32</span>]);
+                    <span class="kw">let </span><span class="kw-2">mut </span>data = <span class="macro">vec!</span>[<span class="number">0u8</span>; <span class="number">2048</span>];
+                    rng.fill_bytes(<span class="kw-2">&amp;mut </span>data);
+                    Unstructured::new(<span class="kw-2">&amp;</span>data).arbitrary::#ty().unwrap()
                 }
             },
-            <span class="ident">Constr::Random</span>(<span class="ident">f</span>) =&gt; <span class="macro">quote!</span> {
+            Constr::Random(f) =&gt; <span class="macro">quote! </span>{
                 {
-                    <span class="kw">use</span> <span class="ident">rand_chacha</span>::{<span class="ident">rand_core::SeedableRng</span>, <span class="ident">ChaChaRng</span>};
-                    <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">rng</span> <span class="op">=</span> <span class="ident">ChaChaRng::from_seed</span>([<span class="number">42u8</span>; <span class="number">32</span>]);
-                    #<span class="ident">ty</span>::#<span class="ident">f</span>(<span class="kw-2">&amp;mut</span> <span class="ident">rng</span>)
+                    <span class="kw">use </span>rand_chacha::{rand_core::SeedableRng, ChaChaRng};
+                    <span class="kw">let </span><span class="kw-2">mut </span>rng = ChaChaRng::from_seed([<span class="number">42u8</span>; <span class="number">32</span>]);
+                    #ty::#f(<span class="kw-2">&amp;mut </span>rng)
                 }
             },
-            <span class="ident">Constr::Method</span>(<span class="ident">f</span>) =&gt; <span class="macro">quote!</span> {
-                #<span class="ident">ty</span>::#<span class="ident">f</span>()
+            Constr::Method(f) =&gt; <span class="macro">quote! </span>{
+                #ty::#f()
             },
         };
 
-        <span class="kw">let</span> <span class="ident">serde_test</span> <span class="op">=</span> <span class="kw">if</span> <span class="ident">test_serde</span> {
-            <span class="kw">let</span> <span class="ident">test_name</span> <span class="op">=</span> <span class="ident">Ident::new</span>(
-                <span class="kw-2">&amp;</span><span class="macro">format!</span>(<span class="string">&quot;ser_test_serde_round_trip_{}_{}&quot;</span>, <span class="ident">name</span>, <span class="ident">i</span>),
-                <span class="ident">Span::mixed_site</span>(),
+        <span class="kw">let </span>serde_test = <span class="kw">if </span>test_serde {
+            <span class="kw">let </span>test_name = Ident::new(
+                <span class="kw-2">&amp;</span><span class="macro">format!</span>(<span class="string">&quot;ser_test_serde_round_trip_{}_{}&quot;</span>, name, i),
+                Span::mixed_site(),
             );
-            <span class="macro">quote!</span> {
-                <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">test</span>)]</span>
-                <span class="attribute">#[<span class="ident">test</span>]</span>
-                <span class="kw">fn</span> #<span class="ident">test_name</span>() {
-                    <span class="kw">let</span> <span class="ident">obj</span> <span class="op">=</span> #<span class="ident">constr</span>;
-                    <span class="kw">let</span> <span class="ident">buf</span> <span class="op">=</span> <span class="ident">bincode::serialize</span>(<span class="kw-2">&amp;</span><span class="ident">obj</span>).<span class="ident">unwrap</span>();
-                    <span class="macro">assert_eq!</span>(<span class="ident">obj</span>, <span class="ident">bincode::deserialize</span>(<span class="kw-2">&amp;</span><span class="ident">buf</span>).<span class="ident">unwrap</span>());
+            <span class="macro">quote! </span>{
+                <span class="attribute">#[cfg(test)]
+                #[test]
+                </span><span class="kw">fn </span>#test_name() {
+                    <span class="kw">let </span>obj = #constr;
+                    <span class="kw">let </span>buf = bincode::serialize(<span class="kw-2">&amp;</span>obj).unwrap();
+                    <span class="macro">assert_eq!</span>(obj, bincode::deserialize(<span class="kw-2">&amp;</span>buf).unwrap());
                 }
             }
-        } <span class="kw">else</span> {
-            <span class="macro">quote!</span> {}
+        } <span class="kw">else </span>{
+            <span class="macro">quote! </span>{}
         };
 
-        <span class="kw">let</span> <span class="ident">ark_test</span> <span class="op">=</span> <span class="kw">if</span> <span class="ident">test_ark</span> {
-            <span class="kw">let</span> <span class="ident">test_name</span> <span class="op">=</span> <span class="ident">Ident::new</span>(
-                <span class="kw-2">&amp;</span><span class="macro">format!</span>(<span class="string">&quot;ser_test_ark_serialize_round_trip_{}_{}&quot;</span>, <span class="ident">name</span>, <span class="ident">i</span>),
-                <span class="ident">Span::mixed_site</span>(),
+        <span class="kw">let </span>ark_test = <span class="kw">if </span>test_ark {
+            <span class="kw">let </span>test_name = Ident::new(
+                <span class="kw-2">&amp;</span><span class="macro">format!</span>(<span class="string">&quot;ser_test_ark_serialize_round_trip_{}_{}&quot;</span>, name, i),
+                Span::mixed_site(),
             );
-            <span class="macro">quote!</span> {
-                <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">test</span>)]</span>
-                <span class="attribute">#[<span class="ident">test</span>]</span>
-                <span class="kw">fn</span> #<span class="ident">test_name</span>() {
-                    <span class="kw">use</span> <span class="ident">ark_serialize</span>::<span class="kw-2">*</span>;
-                    <span class="kw">let</span> <span class="ident">obj</span> <span class="op">=</span> #<span class="ident">constr</span>;
-                    <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">buf</span> <span class="op">=</span> <span class="ident">Vec::new</span>();
-                    <span class="ident">CanonicalSerialize::serialize</span>(<span class="kw-2">&amp;</span><span class="ident">obj</span>, <span class="kw-2">&amp;mut</span> <span class="ident">buf</span>).<span class="ident">unwrap</span>();
-                    <span class="macro">assert_eq!</span>(<span class="ident">obj</span>, <span class="ident">CanonicalDeserialize::deserialize</span>(<span class="ident">buf</span>.<span class="ident">as_slice</span>()).<span class="ident">unwrap</span>());
+            <span class="macro">quote! </span>{
+                <span class="attribute">#[cfg(test)]
+                #[test]
+                </span><span class="kw">fn </span>#test_name() {
+                    <span class="kw">use </span>ark_serialize::<span class="kw-2">*</span>;
+                    <span class="kw">let </span>obj = #constr;
+                    <span class="kw">let </span><span class="kw-2">mut </span>buf = Vec::new();
+                    CanonicalSerialize::serialize(<span class="kw-2">&amp;</span>obj, <span class="kw-2">&amp;mut </span>buf).unwrap();
+                    <span class="macro">assert_eq!</span>(obj, CanonicalDeserialize::deserialize(buf.as_slice()).unwrap());
                 }
             }
-        } <span class="kw">else</span> {
-            <span class="macro">quote!</span> {}
+        } <span class="kw">else </span>{
+            <span class="macro">quote! </span>{}
         };
 
-        <span class="ident">output</span> <span class="op">=</span> <span class="macro">quote!</span> {
-            #<span class="ident">output</span>
-            #<span class="ident">serde_test</span>
-            #<span class="ident">ark_test</span>
+        output = <span class="macro">quote! </span>{
+            #output
+            #serde_test
+            #ark_test
         };
     }
 
-    <span class="ident">output</span>.<span class="ident">into</span>()
+    output.into()
 }
 
-<span class="kw">enum</span> <span class="ident">Constr</span> {
-    <span class="ident">Default</span>,
-    <span class="ident">Random</span>(<span class="ident">Ident</span>),
-    <span class="ident">Arbitrary</span>,
-    <span class="ident">Method</span>(<span class="ident">Ident</span>),
+<span class="kw">enum </span>Constr {
+    Default,
+    Random(Ident),
+    Arbitrary,
+    Method(Ident),
 }
 
-<span class="kw">fn</span> <span class="ident">parse_type</span>(<span class="ident">m</span>: <span class="kw-2">&amp;</span><span class="ident">NestedMeta</span>) -&gt; <span class="ident">Type</span> {
-    <span class="kw">match</span> <span class="ident">m</span> {
-        <span class="ident">NestedMeta::Lit</span>(<span class="ident">Lit::Str</span>(<span class="ident">s</span>)) =&gt; <span class="ident">syn::parse_str</span>(<span class="kw-2">&amp;</span><span class="ident">s</span>.<span class="ident">value</span>()).<span class="ident">unwrap</span>(),
-        <span class="ident">NestedMeta::Meta</span>(<span class="ident">Meta::Path</span>(<span class="ident">p</span>)) =&gt; <span class="ident">syn::parse2</span>(<span class="ident">p</span>.<span class="ident">to_token_stream</span>()).<span class="ident">unwrap</span>(),
-        <span class="kw">_</span> =&gt; {
+<span class="kw">fn </span>parse_type(m: <span class="kw-2">&amp;</span>NestedMeta) -&gt; Type {
+    <span class="kw">match </span>m {
+        NestedMeta::Lit(Lit::Str(s)) =&gt; syn::parse_str(<span class="kw-2">&amp;</span>s.value()).unwrap(),
+        NestedMeta::Meta(Meta::Path(p)) =&gt; syn::parse2(p.to_token_stream()).unwrap(),
+        <span class="kw">_ </span>=&gt; {
             <span class="macro">panic!</span>(<span class="string">&quot;expected type&quot;</span>);
         }
     }
 }
 </code></pre></div>
-</section></div></main><div id="rustdoc-vars" data-root-path="../../" data-current-crate="espresso_macros" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.64.0 (a55dd71d5 2022-09-19)" ></div></body></html>
+</section></div></main><div id="rustdoc-vars" data-root-path="../../" data-current-crate="espresso_macros" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.65.0 (897e37553 2022-11-02)" ></div></body></html>
