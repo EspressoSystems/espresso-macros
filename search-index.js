@@ -1,5 +1,5 @@
 var searchIndex = JSON.parse('{\
-"espresso_macros":{"doc":"","t":[23,23],"n":["generic_tests","ser_test"],"q":["espresso_macros",""],"d":["Define a set of generic tests which can be instantiated …","Generate round-trip serialization tests."],"i":[0,0],"f":[0,0],"p":[]}\
+"espresso_macros":{"doc":"","t":"XX","n":["generic_tests","ser_test"],"q":["espresso_macros",""],"d":["Define a set of generic tests which can be instantiated …","Generate round-trip serialization tests."],"i":[0,0],"f":[0,0],"p":[]}\
 }');
 if (typeof window !== 'undefined' && window.initSearch) {window.initSearch(searchIndex)};
 if (typeof exports !== 'undefined') {exports.searchIndex = searchIndex};
