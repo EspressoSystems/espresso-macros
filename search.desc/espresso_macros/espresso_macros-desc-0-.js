@@ -1,0 +1,1 @@
+searchState.loadedDescShard("espresso_macros", 0, "Define a set of generic tests which can be instantiated …\nGenerate round-trip serialization tests.")
